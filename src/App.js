@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import logo from './react-logo.svg';
+import Header from './Header';
+import Footer from './Footer';
 import './App.css';
 import React from 'react';
 

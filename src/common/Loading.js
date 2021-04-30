@@ -9,7 +9,7 @@ export default class Loading extends Component {
     if (!loading) return null;
 
     return (
-    
-    )
+      <img className="Loading" src="loading.gif" alt="loading"/>
+    );
   }
 }

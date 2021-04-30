@@ -1,0 +1,30 @@
+.PokemonPage {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  background: darkseagreen;
+  
+  .search-options {
+    background: palegoldenrod;
+    border-bottom: 1px solid darkgreen;
+    padding: 10px 20px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  main {
+    overflow: auto;
+    padding: 20px;
+  }
+
+  .loading {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 500px;
+    object-fit: contain;
+  }
+}

@@ -1,18 +1,22 @@
-import { Component } from 'react';
-
-export default class PokemonList extends Component {
-
-
+import React, { Component } from 'react';
+import PokemonItem from './PokemonItem';
+import './PokemonList.scss';
 
 
+class PokemonList extends Component {
+  
+  render() { 
+    const { pokemon } = this.props;
 
+    return (
+      <ul className="PokemonList">
+        {pokemon.map(pokemon => (
+          <PokemonItem key={pokemon._id} pokemon={pokemon}/>
+        ))}
+      </ul>
+    );
+  }
 
-  <ul>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-  </ul>
 }
+ 
+export default PokemonList;

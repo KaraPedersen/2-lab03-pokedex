@@ -6,7 +6,7 @@ import Loading from '../common/Loading';
 import request from 'superagent';
 import './PokemonPage.scss';
 
-// const VILLAGERS_API_URL = 'https://ac-vill.herokuapp.com/villagers';
+const POKEMON_API_URL = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
 
 export default class PokemonPage extends Component {
   state = {
@@ -27,7 +27,7 @@ export default class PokemonPage extends Component {
 
     try {
       const response = await request
-        // .get(VILLAGERS_API_URL)
+        .get(POKEMON_API_URL)
         .query({ name: search })
         .query({ page: page });
   

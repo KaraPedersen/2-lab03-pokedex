@@ -31,7 +31,7 @@ export default class PokemonPage extends Component {
         .query({ name: search })
         .query({ page: page });
   
-      this.setState({ pokemon: response.body });
+      this.setState({ pokemon: response.body.results });
     }
     catch (err) {
       console.log(err);

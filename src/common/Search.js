@@ -4,10 +4,15 @@ import './Search.scss';
 export default class Search extends Component {
   state = {
     search: '',
+    type: '',
   }
 
   handleSearchChange = ({ target }) => {
     this.setState({ search: target.value });
+  }
+
+  handleTypeChange = ({ target }) => {
+    this.setState({ type: target.value });
   }
   
   handleSubmit = (e) => {
@@ -17,7 +22,7 @@ export default class Search extends Component {
 
 
   render() {
-    const { search } = this.state;
+    const { search, type } = this.state;
     
     return (
       <form className="Search" onSubmit={this.handleSubmit}>
@@ -27,6 +32,15 @@ export default class Search extends Component {
           value={search}
           onChange={this.handleSearchChange}
         />
+        <select name="filter-type" value={type} onChange={this.handleTypeChange}>
+          <option value="">All</option>
+          <option value="grass">Grass</option>
+          <option value="bug">Bug</option>
+          <option value="poison">Poison</option>
+          <option value="monster">Monster</option>
+          <option value="psychic">Psychic</option>
+        </select>
+
 
         <button>Search</button>
       

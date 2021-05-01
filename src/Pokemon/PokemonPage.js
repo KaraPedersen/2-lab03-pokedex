@@ -13,7 +13,8 @@ export default class PokemonPage extends Component {
     pokemon: null,
     loading: false,
     search: '',
-    page: 1
+    page: 1,
+    type: ''
   }
 
   componentDidMount() {
@@ -21,16 +22,17 @@ export default class PokemonPage extends Component {
   }
 
   async fetchPokemon() {
-    const { search, page } = this.state;
-
+    const { search, page, type } = this.state;
+    console.log(type);
     this.setState({ loading: true });
 
     try {
       const response = await request
         .get(POKEMON_API_URL)
         .query({ pokemon: search })
-        .query({ page: page });
-      
+        .query({ page: page })
+        // .query({ sort: sortName });
+        .query({ type: type || undefined });
       this.setState({ pokemon: response.body.results });
     }
     catch (err) {
@@ -48,9 +50,9 @@ export default class PokemonPage extends Component {
     );
   }
 
-  handleSearch = ({ search }) => {
+  handleSearch = ({ search, type }) => {
     this.setState(
-      { search: search, page: 1 },
+      { search: search, page: 1, type: type },
       () => this.fetchPokemon()
     );
   }

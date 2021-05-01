@@ -15,7 +15,9 @@ class PokemonItem extends Component {
           src={pokemon.url_image}
           alt={pokemon.pokemon}
         />
-
+        <p>
+          Type {pokemon.type_1}
+        </p>
       </li>
     );
   }

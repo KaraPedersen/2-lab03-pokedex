@@ -28,9 +28,9 @@ export default class PokemonPage extends Component {
     try {
       const response = await request
         .get(POKEMON_API_URL)
-        .query({ name: search })
+        .query({ pokemon: search })
         .query({ page: page });
-  
+      
       this.setState({ pokemon: response.body.results });
     }
     catch (err) {
@@ -65,7 +65,7 @@ export default class PokemonPage extends Component {
 
   render() {
     const { pokemon, loading, page } = this.state;
-
+    
     return (
       <div className="PokemonPage">
         <section className="search-options">
@@ -79,7 +79,7 @@ export default class PokemonPage extends Component {
         
         <main>
           {pokemon && (pokemon.length
-            ? <PokemonList villagers={pokemon}/>
+            ? <PokemonList pokemon={pokemon}/>
             : <p>Sorry no pokemon :(</p>)
           }
 
